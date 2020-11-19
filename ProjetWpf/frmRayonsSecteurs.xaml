@@ -1,0 +1,41 @@
+﻿<Window x:Class="ProjetWpf.frmRayonsSecteurs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetWpf"
+        mc:Ignorable="d"
+        Title="frmRayonsSecteurs" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Secteurs / Rayons" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="Violet"></TextBlock>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Liste des secteurs" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+            <Line Width="50"></Line>
+            <ComboBox Name="cboSecteursRayons" Width="500" SelectionChanged="cboSecteursRayons_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding NomSecteur}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <ListBox Name="lstSecteursRayons" Grid.Row="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding NumR}"></TextBlock>
+                        <TextBlock Text="{Binding NomR}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+    </Grid>
+</Window>
